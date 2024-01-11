@@ -1,4 +1,4 @@
-name: Create Daily Issue
+name: Create Daily PR
 
 on:
   schedule:
@@ -6,26 +6,28 @@ on:
   workflow_dispatch: # 手動でアクションをトリガーするための設定
 
 jobs:
-  create_issue:
+  create_pr:
     runs-on: ubuntu-latest
 
-    permissions:
-      issues: write
-    
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Create Issue
+      - name: Create Daily PR
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           repo_owner=${{ github.repository_owner }}
           repo_name=${{ github.event.repository.name }}
-          issue_title="Daily Issue - $(date +\%Y-\%m-\%d)"
-          issue_body="This is a daily issue created by a GitHub Action."
+          branch_name="feature/update-library/$(date +\%Y\%m\%d)"
+          pr_title="Daily PR - $(date +\%Y-\%m-\%d)"
+          pr_body="This is a daily PR created by a GitHub Action."
+          
+          git checkout -b $branch_name
+          git commit --allow-empty -m "Daily commit"
+          git push origin $branch_name
           
           curl -X POST \
             -H "Authorization: token $GITHUB_TOKEN" \
-            -d '{"title":"'"$issue_title"'","body":"'"$issue_body"'"}' \
-            "https://api.github.com/repos/$repo_owner/$repo_name/issues"
+            -d '{"title":"'"$pr_title"'","body":"'"$pr_body"'","head":"'"$branch_name"'","base":"main"}' \
+            "https://api.github.com/repos/$repo_owner/$repo_name/pulls"
