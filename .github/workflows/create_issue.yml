@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      pull-requests: read|write|none
+      pull-requests: write
 
     steps:
       - name: Checkout Repository
