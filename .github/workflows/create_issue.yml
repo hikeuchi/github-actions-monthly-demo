@@ -1,4 +1,4 @@
-name: Create Monthly PR
+name: Create Poetry Monthly Update  PR
 
 on:
   schedule:
