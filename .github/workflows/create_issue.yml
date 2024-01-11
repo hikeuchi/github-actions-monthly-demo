@@ -24,6 +24,7 @@ jobs:
       - name: Create Monthly PR
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TZ: Asia/Tokyo
         run: |
           repo_owner=${{ github.repository_owner }}
           repo_name=${{ github.event.repository.name }}
