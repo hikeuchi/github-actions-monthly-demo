@@ -29,7 +29,8 @@ jobs:
           repo_name=${{ github.event.repository.name }}
           branch_name="feature/update-library/$(date +\%Y\%m\%d\%H\%M\%S)"
           pr_title="Poetryのアップデート(毎月) - $(date +\%Y-\%m-\%d - \%H:\%M:\%S)"
-          pr_body="Poetryのアップデートを行ってください\n\n- [ ] poetryの更新\n\n```sh\ncd <path-to-dir>\npoetry update\n# 更新されたpoetry.lockをコミット\n```\n\n- [ ] 全テストを実行し動作に問題ないかの確認"
+          # pr_body="Poetryのアップデートを行ってください\n\n- [ ] poetryの更新\n\n```sh\ncd <path-to-dir>\npoetry update\n# 更新されたpoetry.lockをコミット\n```\n\n- [ ] 全テストを実行し動作に問題ないかの確認"
+          pr_body="This is a daily PR created by a GitHub Action."
           
           git checkout -b $branch_name
           git commit --allow-empty -m "Monthly commit"
