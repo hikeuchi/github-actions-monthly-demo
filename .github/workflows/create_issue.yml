@@ -1,6 +1,16 @@
 name: Create an issue on Monday 09:00 (JST)
 
 on:
+  workflow_dispatch:
+    inputs:
+      job:
+        description: 'Select job'
+        required: true
+        type: choice
+        options:
+          - ''
+          - start
+          - stop
   schedule:
     - cron: '0 0 * * 1'
 
