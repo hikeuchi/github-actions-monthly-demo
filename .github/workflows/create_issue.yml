@@ -41,7 +41,7 @@ jobs:
           # reviewers='["reviewer1", "reviewer2"]'
 
           git checkout -b $branch_name
-          git commit --allow-empty -m "Monthly commit"
+          git commit --allow-empty -m "chore: Poetryの更新"
           git push origin $branch_name
           
           pr_id=$(curl -X POST \
