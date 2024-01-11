@@ -27,8 +27,8 @@ jobs:
         run: |
           repo_owner=${{ github.repository_owner }}
           repo_name=${{ github.event.repository.name }}
-          branch_name="feature/update-library/$(date +\%Y\%m\%d\%H\%M\%S)"
-          pr_title="Monthly PR - $(date +\%Y-\%m-\%d - \%H:\%M:\%S)"
+          branch_name="feature/update-library/$(date +\%Y\%m\%d-\%H\%M\%S)"
+          pr_title="Daily PR - $(date +\%Y-\%m-\%d-\%H:\%M:\%S)"
           pr_body="Poetryのアップデートを行ってください"
           
           git checkout -b $branch_name
