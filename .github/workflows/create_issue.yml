@@ -1,35 +1,28 @@
-name: Create an issue on Monday 09:00 (JST)
+name: Create Daily Issue
 
 on:
-  workflow_dispatch:
-    inputs:
-      job:
-        description: 'Select job'
-        required: true
-        type: choice
-        options:
-          - ''
-          - start
-          - stop
   schedule:
-    - cron: '0 0 * * 1'
+    - cron: '0 0 * * *' # 毎日UTC時間0時に実行
+  workflow_dispatch: # 手動でアクションをトリガーするための設定
 
 jobs:
-  create_issues:
+  create_issue:
     runs-on: ubuntu-latest
-    steps:
-      - name: Get today and tomorrow date
-        id: date
-        run: |
-          echo "::set-output name=tomorrow::$(date "+%Y/%m/%d" -d "1 day")"
-      - name: Create an issue
-        uses: actions-ecosystem/action-create-issue@v1
-        with:
-          github_token: ${{ secrets.github_token }}
-          title: '【${{ steps.date.outputs.tomorrow }}】定期タスク'
-          body: |
-            ## To do
-            + [ ] 準備
 
-          labels: |
-            Routine
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Create Issue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          repo_owner=${{ github.repository_owner }}
+          repo_name=${{ github.event.repository.name }}
+          issue_title="Daily Issue - $(date +\%Y-\%m-\%d)"
+          issue_body="This is a daily issue created by a GitHub Action."
+          
+          curl -X POST \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            -d '{"title":"'"$issue_title"'","body":"'"$issue_body"'"}' \
+            "https://api.github.com/repos/$repo_owner/$repo_name/issues"
