@@ -1,8 +1,9 @@
 def sample_print():
     print("Hello, Python!")
 
+
 def main():
-    print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    print("goodbye, Python!")
     print("Hello, Python!")
 
 
