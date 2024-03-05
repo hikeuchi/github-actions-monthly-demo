@@ -1,8 +1,8 @@
-def sample_print():
+def sample_print() -> None:
     print("Hello, Python!")
 
 
-def main():
+def main() -> None:
     print("goodbye, Python!")
     print("Hello, Python!")
 
