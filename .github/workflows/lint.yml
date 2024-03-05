@@ -1,8 +1,12 @@
-name: Flake8 Check
+name: Lint Check
 
 on:
   pull_request:
+    path:
+      - '*.py'
   workflow_dispatch:
+    path:
+      - '*.py'
 
 jobs:
   flake8-lint:
@@ -14,7 +18,8 @@ jobs:
       - name: Set up Python environment
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.11"     
+      # Flake8
       - name: flake8 Lint
         uses: py-actions/flake8@v2
         with:
@@ -24,3 +29,14 @@ jobs:
           # path: "src"
           plugins: "flake8-bugbear==22.1.11 flake8-black"
           args: "--max-complexity=10"
+          
+      # Install Dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install mypy
+        
+      # Mypy
+      - name: Mypy Liint
+        run: mypy . --ignore-missing-imports --disallow-untyped-defs
+        
