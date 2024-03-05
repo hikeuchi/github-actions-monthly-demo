@@ -1,8 +1,6 @@
 import os
 import math  # Error
 
-import oshoge
-
 
 def sample_print() -> None:
     print(math.pi)
