@@ -1,6 +1,5 @@
-import os
 import math
-
+import os
 
 
 def sample_print() -> None:
