@@ -35,7 +35,7 @@ jobs:
       
       # Mypy
       - name: Run Mypy
-        run: mypy . \
-             --ignore-missing-imports \
+        run: mypy .
+             --ignore-missing-imports
              --disallow-untyped-defs
         
