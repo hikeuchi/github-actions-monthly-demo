@@ -24,5 +24,6 @@ jobs:
         uses: sasanquaneuf/mypy-github-action@releases/v1
         with:
           checkName: 'mypy'   # NOTE: this needs to be the same as the job name
+          args: "--ignore-missing-imports --disallow-untyped-defs"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
