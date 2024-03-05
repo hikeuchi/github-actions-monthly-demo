@@ -30,8 +30,8 @@ jobs:
       # Flake8
       - name: Rum Flake8
         run: flake8 . \
-             --max-complexity 10 \
-             --max-line-length 79
+             --max-complexity=10 \
+             --max-line-length=79
       
       # Mypy
       - name: Run Mypy
