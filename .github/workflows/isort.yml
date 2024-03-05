@@ -28,4 +28,4 @@ jobs:
 
       # Flake8
       - name: Rum isort
-        run: isort .
+        run: isort . -c
