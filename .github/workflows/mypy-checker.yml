@@ -26,4 +26,4 @@ jobs:
         pip install mypy
 
     - name: Run MyPy
-      run: mypy .
+      run: mypy . --ignore-missing-imports --disallow-untyped-defs
