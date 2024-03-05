@@ -2,8 +2,11 @@ name: Mypy-Checker Check
 
 on:
   pull_request:
+    path:
+      - '*.py'
   workflow_dispatch:
-
+    path:
+      - '*.py'
 jobs:
   flake8-lint:
     runs-on: ubuntu-latest
