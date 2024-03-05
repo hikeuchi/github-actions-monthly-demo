@@ -1,0 +1,26 @@
+{
+    "[python]": {
+        // VS Code のフォーマッターは無効にしておく
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        },
+    },
+    "isort.args":["--profile", "black"],
+    "flake8.args": [
+        "--max-line-length=79",
+        "--max-complexity=10",
+    ],
+    "mypy-type-checker.args": [
+        "--ignore-missing-imports",
+        "--disallow-untyped-defs",
+        // "--config-file=<file>"
+    ],
+    // flake8と最大文字数を合わせる
+    "black-formatter.args": [
+        "--line-length=79",
+    ],
+    "lldb.library": "/Applications/Xcode-15.0.0.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
+    "lldb.launch.expressions": "native"
+}
