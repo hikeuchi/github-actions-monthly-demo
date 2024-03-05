@@ -1,5 +1,5 @@
+import math
 import os
-import math  # Error
 
 
 def sample_print() -> None:
