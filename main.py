@@ -1,8 +1,16 @@
-def sample_print():
+import os
+import sys
+
+
+def sample_print() -> None:
     print("Hello, Python!")
 
-def main():
-    print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+
+def main() -> None:
+    """
+    nice: is
+    """
+    print("uoooddddddddddddddoooooooooffffeooooooo0fheaifhooooooooooooo")
     print("Hello, Python!")
 
 

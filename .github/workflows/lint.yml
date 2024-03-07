@@ -2,11 +2,7 @@ name: Lint Check
 
 on:
   pull_request:
-    path:
-      - '*.py'
   workflow_dispatch:
-    path:
-      - '*.py'
 
 jobs:
   flake8-lint:
@@ -35,19 +31,20 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8
           pip install mypy
+          pip install black
           pip install isort
 
       # Flake8
       - name: Rum Flake8
         run: flake8 .
-             --max-complexity 10
-             --max-line-length 79
       
       # Mypy
       - name: Run Mypy
         run: mypy .
-             --ignore-missing-imports
-             --disallow-untyped-defs
+
+      # Black_Formatter
+      - name: Run Black_Formatter
+        run: black . --check
 
       # isort
       - name: Run isort

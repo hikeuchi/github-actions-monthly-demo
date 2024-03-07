@@ -1,0 +1,45 @@
+[tool.poetry]
+name = "github-actions-monthly-demo"
+version = "0.1.0"
+description = ""
+authors = ["Hiroki Ikeuchi <hikeuchi@morisawa.co.jp>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+############
+# Ruffの設定
+############
+
+[tool.ruff]
+line-length = 79
+
+# Option Settings
+## https://gihyo.jp/article/2023/03/monthly-python-2303
+## 略称一覧: https://pypi.org/project/ruff/0.0.242/#supported-rule
+
+## select: 指定したルールをチェックの対象とする
+select = ["ALL"]
+## ignore: 指定したルールをチェックの対象としない
+ignore = [
+    "D", # Docstringを中途半端にしか書いていないので、除外する
+]
+target-version = "py311"
+
+[tool.ruff.per-file-ignores]
+# ファイル毎に無効とする設定
+# https://docs.astral.sh/ruff/settings/#lint_logger-objects
+"*.py" = [
+    "T201",
+]
+
+[tool.ruff.pydocstyle]
+# pydocstyleを無視しているのでこの設定は無意味だが、
+# いずれdocstringのスタイルを統一するので設定だけしておく
+convention = "google"
