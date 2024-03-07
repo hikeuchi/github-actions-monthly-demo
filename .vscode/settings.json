@@ -1,18 +1,18 @@
 {   
     "[python]": {
-
+      // Ruffの設定: https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff
       "editor.formatOnSave": true,
-      
+    
       // デフォルトのformatterにruffを指定。
       "editor.defaultFormatter": "charliermarsh.ruff",
 
       "editor.codeActionsOnSave": {
         // 保存時に自動でimportを整理する
         "source.organizeImports": "explicit"
-    }
+      }
     },
-    // Ruffの設定: https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff
+    // ruffの設定は下記ファイルを読み込む
     "ruff.format.args": [
       "--config=pyproject.toml"
-    ],
+    ],    
   }

@@ -1,7 +1,3 @@
-import os
-import sys
-
-
 def sample_print() -> None:
     print("Hello, Python!")
 
