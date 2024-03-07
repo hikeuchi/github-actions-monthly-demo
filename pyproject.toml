@@ -27,12 +27,12 @@ line-length = 79
 ## select: 指定したルールをチェックの対象とする
 lint.select = ["ALL"]
 ## ignore: 指定したルールをチェックの対象としない
-lint.ignore = [
+ignore = [
     "D", # Docstringを中途半端にしか書いていないので、除外する
 ]
 target-version = "py311"
 
-[tool.ruff.per-file-ignores]
+[tool.ruff.lit.per-file-ignores]
 # ファイル毎に無効とする設定
 # https://docs.astral.sh/ruff/settings/#lint_logger-objects
 "*.py" = [
